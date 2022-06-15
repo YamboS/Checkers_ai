@@ -1,3 +1,7 @@
+#Members: Robert Flarity, Matthew Stewart, Samuel Yambo
+#6/15/2022
+#Assignment #1 
+# Summer 2022 intro to ai
 from easyAI import TwoPlayerGame, Human_Player, AI_Player, Negamax
 from easyAI import solve_with_iterative_deepening
 from matplotlib.pyplot import pie
@@ -17,7 +21,6 @@ class Checker(TwoPlayerGame):
 
     def __init__(self, players):
         self.players = players
-        # self.board = np.arange(8 * 8).reshape(8,8)
         self.blank_board = np.zeros((8,8), dtype=object)
         self.board = self.blank_board.copy()
         self.black_pieces = [

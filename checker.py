@@ -40,7 +40,7 @@ class Checker(TwoPlayerGame):
         self.players[0].pos = self.white_pieces
         self.players[1].pos = self.black_pieces
 
-        self.current_player = 2  # player 1 starts.
+        self.current_player = 1  # player 1 starts.
 
     def possible_moves_on_white_turn(self):
 
@@ -143,7 +143,7 @@ class Checker(TwoPlayerGame):
         """
         """
 
-        if self.current_player == 2:
+        if self.current_player-1 == 1:
             return self.possible_moves_on_black_turn()
         else:
             return self.possible_moves_on_white_turn()
@@ -159,7 +159,6 @@ class Checker(TwoPlayerGame):
         assert len(np.where(table_pos != 0)[0]) == 16, f"In get_piece_pos_from_table(), there are {len(np.where(table_pos != 0)[0])} pieces on the board  \n {table_pos}"
         return [(i,j) for i,j in zip(x[0], x[1])]
 
-#--------------------------------------------------------------------
     def make_move(self, pos):
         """
         assign pieces index of pos array to current player position.
@@ -199,10 +198,10 @@ class Checker(TwoPlayerGame):
     
     def scoring(self):
         return -100 if self.lose() else 0       
-
+    
     def is_over(self):
         """
-        game is over immediately when one player get one of its piece into opponent's territory.
+        game is over immediately when one player gets one of its piece into opponent's territory.
         """
         return self.lose()
 #--------------------------------------------------------------------
